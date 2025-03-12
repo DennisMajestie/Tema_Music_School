@@ -1,0 +1,31 @@
+.centered {
+  justify-content: center;
+}
+
+.text_align {
+  text-align: start;
+  padding-left: 20px;
+}
+
+// .card-margin {
+//   margin-right: 4px;
+// }
+
+// .btn-position {
+//   display: flex;
+//   justify-content: end;
+//   align-self: flex-end !important;
+// }
+.billing-card-features li {
+  list-style: none;
+  margin: 8px 0;
+}
+
+.fa-check-circle {
+  color: #4CAF50 ; /* Tick color */
+  margin-right: 20px; /* Space between tick and text */
+  font-size: 2em; /* Adjust size */
+}
+.billing-card-features li:hover::before {
+  color: red ; /* Only the tick turns red */
+}

@@ -1,0 +1,13 @@
+/*
+Template Name: Pet Love
+Color scheme: Just green
+ */
+:root {
+	--bs-primary: #03312e; /* dark green*/
+	--bs-primary-rgb: 14, 125, 118;
+	--bs-secondary: #037171;/* green 1*/
+	--bs-dark: #00b9ae;/* green 2*/
+	--bs-border-color: #00b9ae;
+	--bs-light: #f7f7f7;/* light gray */  
+}
+  

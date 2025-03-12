@@ -1,0 +1,222 @@
+/* You can add global styles to this file, and also import other style files */
+.align-text {
+  text-align: justify !important;
+}
+
+.margin-top {
+  margin-top: 80px;
+}
+
+.margin-buttom {
+  margin-bottom: 20px;
+}
+
+.info-section {
+  background: 
+    url("/petlove/img/EaglesAsoVilla.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+@media (min-width: 1200px) and (max-width: 1399px) {
+  .info-section {
+    padding: 90px 5% 90px 5%;
+  }
+}
+
+@media (min-width: 992px) and (max-width: 1199px) {
+  .info-section {
+    padding: 90px 5% 90px 5%;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  .info-section {
+    padding: 90px 5% 90px 5%;
+  }
+}
+
+@media (max-width: 767px) {
+  .info-section {
+    padding: 90px 2% 90px 2%;
+  }
+}
+
+.info-section .info-content {
+  padding-left: 30px;
+}
+
+@media (max-width: 991px) {
+  .info-section .info-content {
+    padding-left: 0px;
+  }
+}
+
+.info-section .info-content h2 {
+  font-size: 2.8125rem;
+  font-weight: 700;
+  color: white;
+  margin-bottom: 30px;
+  line-height: 1.4;
+}
+
+@media (max-width: 767px) {
+  .info-section .info-content h2 {
+    font-size: 2.2rem;
+  }
+}
+
+.info-section .info-content p {
+  font-size: 16px;
+  font-weight: 400;
+  font-family: var(--font-exo);
+  line-height: 1.8;
+  color: var(--white);
+}
+
+.info-section .info-list {
+  list-style: none;
+  margin: 40px 0 0 0;
+  padding: 0;
+  display: flex;
+  flex-flow: row wrap;
+  gap: 80px;
+  justify-content: start;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  .info-section .info-list {
+    gap: 50px;
+  }
+}
+
+@media (max-width: 767px) {
+  .info-section .info-list {
+    gap: 30px;
+  }
+}
+
+.info-section .info-list li h4 {
+  font-size: 1.5rem;
+  color: var(--primary-color1);
+}
+
+.info-section .info-list li p {
+  font-size: 15px;
+  font-weight: 500;
+  color: white;
+  color: white;
+}
+
+.info-section .info-video {
+  position: relative;
+  min-height: 100%;
+}
+
+@media (max-width: 767px) {
+  .info-section .info-video {
+    min-height: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+.info-section .video-play {
+  text-align: center;
+  z-index: 9;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 0;
+}
+
+@media (max-width: 767px) {
+  .info-section .video-play {
+    position: unset;
+  }
+}
+
+.info-section .video-play .video-icon {
+  width: 1000px;
+  height: 100px;
+  border-radius: 50%;
+  line-height: 52px;
+  display: inline-block;
+  text-align: center;
+  position: relative;
+  font-size: 36px;
+  color: white;
+}
+
+.info-section .video-play .video-icon::before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  -webkit-animation: ripple-1 2s infinite ease-in-out;
+  animation: ripple-1 2s infinite ease-in-out;
+  z-index: -1;
+}
+
+.info-section .video-play .video-icon::after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.555);
+  z-index: -1;
+  -webkit-animation: ripple-2 2s infinite ease-in-out;
+  animation: ripple-2 2s infinite ease-in-out;
+  -webkit-animation-delay: 0.5s;
+  animation-delay: 0.5s;
+}
+
+@keyframes ripple-1 {
+  0% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    opacity: 1;
+  }
+
+  100% {
+    -webkit-transform: scale(1.7);
+    transform: scale(1.7);
+    opacity: 0;
+  }
+}
+
+@keyframes ripple-2 {
+  0% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    opacity: 1;
+  }
+
+  100% {
+    -webkit-transform: scale(1.9);
+    transform: scale(1.9);
+    opacity: 0;
+  }
+}
+
+.billing-card-features li {
+  list-style: none;
+  margin: 8px 0;
+}
+
+.fa-check-circle {
+  color: #4CAF50 ; /* Tick color */
+  margin-right: 20px; /* Space between tick and text */
+  font-size: 2em; /* Adjust size */
+}

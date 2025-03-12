@@ -1,0 +1,161 @@
+.scroll-container {
+  display: flex;
+  flex-direction: column;
+  height: 200px;
+  overflow-y: scroll;
+  padding-right: 10px;
+  scrollbar-width: none; /* Firefox - Hide scrollbar */
+  -ms-overflow-style: none; /* Internet Explorer - Hide scrollbar */
+}
+
+.scroll-container::-webkit-scrollbar {
+  display: none; /* Hide scrollbar */
+}
+
+// [data-aos^="fade"][data-aos^="fade"] {
+//   opacity: 0;
+//   transition-property: opacity, transform;
+// }
+
+// [data-aos^="fade"][data-aos^="fade"].aos-animate {
+//   opacity: 1;
+//   transform: translateZ(0);
+// }
+
+// [data-aos="fade-up"] {
+//   transform: translate3d(0, 100px, 0);
+// }
+
+// [data-aos="fade-down"] {
+//   transform: translate3d(0, -100px, 0);
+// }
+
+// [data-aos="fade-right"] {
+//   transform: translate3d(-100px, 0, 0);
+// }
+
+// [data-aos="fade-left"] {
+//   transform: translate3d(100px, 0, 0);
+// }
+
+// [data-aos="fade-up-right"] {
+//   transform: translate3d(-100px, 100px, 0);
+// }
+
+// [data-aos="fade-up-left"] {
+//   transform: translate3d(100px, 100px, 0);
+// }
+
+// [data-aos="fade-down-right"] {
+//   transform: translate3d(-100px, -100px, 0);
+// }
+
+// [data-aos="fade-down-left"] {
+//   transform: translate3d(100px, -100px, 0);
+// }
+
+.align-start {
+  align-items: flex-start;
+}
+
+// <div class="container">
+// <h1>Our Music Courses</h1>
+// <p style="text-align:center;">We offer a wide range of music courses designed to cater to different ages, skill levels, and interests.</p>
+
+// <div class="course-section">
+//     <h2>Breadth Courses (Choose 1)</h2>
+//     <div class="course-card"><span class="icon">🎭</span>Confidence Building</div>
+//     <div class="course-card"><span class="icon">🎬</span>Basic Acting Skills</div>
+//     <div class="course-card"><span class="icon">🤝</span>Ethics, Civility, & Etiquettes</div>
+//     <div class="course-card"><span class="icon">🗣</span>Communication Skills</div>
+// </div>
+
+// <div class="course-section">
+//     <h2>Core Courses (Compulsory)</h2>
+//     <div class="course-card"><span class="icon">🎼</span>Music Theory</div>
+//     <div class="course-card"><span class="icon">🥁</span>Rhythm Lessons</div>
+// </div>
+
+// <div class="course-section">
+//     <h2>Elective Courses (Choose 1)</h2>
+//     <div class="course-card"><span class="icon">💃</span>Dance</div>
+//     <div class="course-card"><span class="icon">🥋</span>Karate</div>
+//     <div class="course-card"><span class="icon">🎨</span>Arts and Crafts</div>
+// </div>
+
+// <div class="course-section">
+//     <h2>Selective Courses (Choose 2)</h2>
+//     <div class="course-card"><span class="icon">🎹</span>Piano</div>
+//     <div class="course-card"><span class="icon">🎻</span>Violin</div>
+//     <div class="course-card"><span class="icon">🎸</span>Guitar</div>
+//     <div class="course-card"><span class="icon">🎺</span>Trumpet</div>
+//     <div class="course-card"><span class="icon">🎤</span>Voice</div>
+//     <div class="course-card"><span class="icon">🥁</span>Drums</div>
+//     <div class="course-card"><span class="icon">🎷</span>Saxophone</div>
+//     <div class="course-card"><span class="icon">🎻</span>Cello</div>
+// </div>
+
+// <a href="#" class="btn">Enroll Now</a>
+// </div>
+
+// .para-img {
+//   position: absolute;
+//   margin-top: -300px;
+//   max-width: 500px;
+//   margin-left: 600px;
+//   z-index: 999;
+// }
+
+.float {
+  animation-name: floating;
+  animation-duration: 10s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+  margin-top: -200px;
+  max-width: 500px;
+  color: white;
+  z-index: 999;
+}
+
+@keyframes floating {
+  0% {
+    transform: translate(0px, 0px);
+  }
+  50% {
+    transform: translate(-30px, 0px);
+  }
+  100% {
+    transform: translate(0px, 0px);
+  }
+}
+
+.floating2 {
+  animation-name: floating;
+  animation-duration: 15s;
+  // animation-iteration-count: infinite;
+  animation-timing-function: ease-out;
+  margin-top: 100px;
+  color: white;
+}
+
+@keyframes floating2 {
+  0% {
+    transform: translate(0, -0px);
+  }
+  50% {
+    transform: translate(30px, 0px);
+  }
+  100% {
+    transform: translate(0px, -30px);
+  }
+}
+
+
+// .parallax-object {
+//   position: absolute;
+//   top: auto;
+//   right: 0;
+//   z-index: 99;
+//   margin-top: -370px;
+//   max-width: 500px;
+// }

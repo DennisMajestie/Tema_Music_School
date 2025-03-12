@@ -1,0 +1,13 @@
+/*
+Template Name: Pet Love
+Color scheme: deep blue
+ */
+:root {
+	--bs-primary: #001d3d; /* dark blue */
+	--bs-primary-rgb: 0, 29, 61;
+	--bs-secondary: #457b9d;/* blue 2*/
+	--bs-dark: #00b4d8;/* blue 3 */
+	--bs-border-color: #00b4d8;
+	--bs-light: #f7f7f7 ;/* light blue */  
+}
+  

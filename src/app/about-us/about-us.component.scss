@@ -1,0 +1,129 @@
+.margin {
+  margin-bottom: 0;
+}
+
+.centered {
+  display: flex;
+  justify-content: center !important;
+}
+
+.card-style {
+  display: flex;
+  gap: 5px;
+  width: 100%;
+}
+.card-extra {
+  text-align: center;
+  flex: 1;
+}
+
+.margin-top {
+  margin-top: 80px;
+}
+
+@media (max-width: 600px) {
+  .card-style {
+    flex-direction: column;
+    align-items: center;
+  }
+  .card-extra {
+    width: 100%;
+  }
+}
+
+.floating {
+  animation-name: floating;
+  animation-duration: 20s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+  margin-right: -70px;
+  margin-top: -300px;
+  color: white;
+}
+
+@keyframes floating {
+  0% {
+    transform: translate(0px, 0px);
+  }
+  50% {
+    transform: translate(-100px, 0px);
+  }
+  100% {
+    transform: translate(0px, 0px);
+  }
+}
+
+.floating2 {
+  animation-name: floating;
+  animation-duration: 15s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-out;
+  margin-right: 90px;
+  margin-top: 20px;
+  color: white;
+}
+
+@keyframes floating2 {
+  0% {
+    transform: translate(0, -0px);
+  }
+  50% {
+    transform: translate(150px, 0px);
+  }
+  100% {
+    transform: translate(0px, -100px);
+  }
+}
+
+.floating3 {
+  animation-name: floating;
+  animation-duration: s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+  margin-top: 10px;
+  margin-right: 100px;
+  color: white;
+}
+
+@keyframes floating3 {
+  0% {
+    transform: translate(0, 0px);
+  }
+  50% {
+    transform: translate(0, 100px);
+  }
+  100% {
+    transform: translate(0, 0px);
+  }
+}
+
+.floating4 {
+  animation-name: floating;
+  animation-duration: 16s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+  margin-right: 70px;
+  margin-top: -80px;
+  color: white;
+}
+
+@keyframes floating4 {
+  0% {
+    transform: translate(0, 0px);
+  }
+  50% {
+    transform: translate(100px, 0px);
+  }
+  100% {
+    transform: translate(0, 100px);
+  }
+}
+
+.card-margin {
+  margin-bottom: 200px;
+  margin-left: -80px;
+}
+
+.margin-right {
+  margin-left: 5px;
+}

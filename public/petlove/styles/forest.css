@@ -1,0 +1,13 @@
+/*
+Template Name: Pet Love
+Color scheme: Forest
+ */
+:root {
+	--bs-primary: #283618; /* dark green */
+	--bs-primary-rgb: 40, 54, 24;
+	--bs-secondary: #bc6c25;/* light brown*/
+	--bs-dark: #c0c777;/* lime green */
+	--bs-border-color: #c0c777;
+	--bs-light: #fafbed;/* light green*/  
+}
+  

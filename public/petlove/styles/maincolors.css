@@ -1,0 +1,14 @@
+/*
+Template Name: Pet Love
+Color scheme: Main Colors
+ */
+:root {
+	--bs-primary: #003049; /* blue*/
+	--bs-primary-rgb: 0, 48, 53;
+	--bs-secondary: #D62828;/* red*/
+	--bs-dark: #F77F00;/* yellow*/
+	--bs-border-color: #F77F00;
+	--bs-light: #FFF3E7;/* light yellow*/  
+
+}
+  

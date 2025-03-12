@@ -1,0 +1,23 @@
+<div class="stepper">
+    <div *ngFor="let step of steps; let i = index" class="step" [class.completed]="i < currentStep"
+        [class.active]="i === currentStep" @stepAnimation>
+        <div class="circle">
+            <span *ngIf="i >= currentStep">{{ i + 1 }}</span>
+            <span *ngIf="i < currentStep">&#10003;</span>
+        </div>
+        <p class="title">{{ step.title }}</p>
+        <p class="description">{{ step.description }}</p>
+        <ul class="details">
+            <li *ngFor="let detail of step.details">{{ detail }}</li>
+        </ul>
+        <div *ngIf="i < steps.length - 1" class="line"></div>
+    </div>
+</div>
+
+<!-- Stepper Controls -->
+<div class="stepper-controls">
+    <button (click)="prevStep()" [disabled]="currentStep === 0">Previous</button>
+    <button (click)="nextStep()" [disabled]="currentStep === steps.length - 1">
+        Next
+    </button>
+</div>

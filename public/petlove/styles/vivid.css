@@ -1,0 +1,13 @@
+/*
+Template Name: Pet Love
+Color scheme: Vivid
+ */
+:root {
+	--bs-primary: #8d0801; /* red */
+	--bs-primary-rgb: 195, 79, 73;
+	--bs-secondary: #003049;/* blue*/
+	--bs-dark: #ffa29d;/*pink */
+	--bs-border-color: #ffa29d;
+	--bs-light: #fff8f8;/* light pink */  
+}
+  
