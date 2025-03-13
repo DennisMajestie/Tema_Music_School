@@ -58,7 +58,7 @@
   animation-duration: 15s;
   animation-iteration-count: infinite;
   animation-timing-function: ease-out;
-  margin-right: 90px;
+  margin-right: -140px;
   margin-top: 20px;
   color: white;
 }
@@ -68,7 +68,7 @@
     transform: translate(0, -0px);
   }
   50% {
-    transform: translate(150px, 0px);
+    transform: translate(0px, 15s0px);
   }
   100% {
     transform: translate(0px, -100px);
