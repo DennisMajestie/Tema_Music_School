@@ -1,4 +1,22 @@
- .nav-btn {
-margin-right: 20px;
 
+
+.nav-btn {
+    // margin-left: 140px;
+    display: flex;
+    justify-content: center;
+    
+}
+
+
+.navbar-btn {
+    padding-bottom: 40px;
+    max-height: 400px;
+    overflow-y: scroll !important;
+    overflow-x: hidden !important;
+}
+
+
+
+.btn-style {
+    width: 2rem;
 }
