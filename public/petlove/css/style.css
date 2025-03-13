@@ -1217,7 +1217,7 @@ ul.custom li:before {
     /* page-padding */
     .page {
         padding-top: 4rem;
-        padding-bottom: 4rem;
+        padding-bottom: 2rem;
     }
 
     /* parallax */
@@ -1229,7 +1229,7 @@ ul.custom li:before {
 
     .parallax2 {
         position: relative;
-        margin-top: 170px;
+        margin-top: 2rem;
         max-width: 100%;
         margin-left: 0px;
     }

@@ -119,6 +119,12 @@
   }
 }
 
+@media (max-width: 768px) {
+  .floating {
+   margin-top: 0;
+  }
+}
+
 .card-margin {
   margin-bottom: 200px;
   margin-left: -80px;
