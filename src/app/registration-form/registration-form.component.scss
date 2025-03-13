@@ -107,31 +107,24 @@ button:hover {
     margin-left: 3px;
 }
 
-/* Mobile-first media query */
-@media (min-width: 769px) {
-    /* Desktop styles */
-    .form-container {
-        margin: 5rem auto;
-        padding: 2rem;
-    }
-
-    .form-grid {
-        gap: 1rem;
-    }
-
-    .courses-section {
-        gap: 2rem;
-    }
-}
 
 /* Mobile-specific adjustments */
 @media (max-width: 768px) {
-    .courses-section {
+   .courses-section {
+    display: block;
+   }
+
+    .form-grid{
         display: block !important; /* Stack course sections */
     }
 
     .course-group {
         margin-bottom: 1rem;
+    }
+
+    .form-section {
+      padding: 1rem;
+
     }
 
     button {
@@ -146,8 +139,14 @@ button:hover {
 
     .form-group {
         margin-bottom: 0.8rem; /* Reduced spacing */
+
+    }
+    
+    .form-container{
+        padding: 0;
     }
 }
+
 
 /* Common styles (unchanged) */
 label {
