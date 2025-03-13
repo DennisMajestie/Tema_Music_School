@@ -58,8 +58,8 @@
   animation-duration: 15s;
   animation-iteration-count: infinite;
   animation-timing-function: ease-out;
-  margin-right: -140px;
-  margin-top: 20px;
+  margin-right: 90px;
+  margin-top: -60px;
   color: white;
 }
 
@@ -68,7 +68,7 @@
     transform: translate(0, -0px);
   }
   50% {
-    transform: translate(0px, 15s0px);
+    transform: translate(0px, 150px);
   }
   100% {
     transform: translate(0px, -100px);
@@ -80,7 +80,7 @@
   animation-duration: s;
   animation-iteration-count: infinite;
   animation-timing-function: ease-in-out;
-  margin-top: 10px;
+  margin-top: -100px;
   margin-right: 100px;
   color: white;
 }
@@ -127,7 +127,7 @@
 
 .card-margin {
   margin-bottom: 20px;
-  margin-left: -80px;
+ 
 }
 
 .margin-right {
