@@ -12,27 +12,75 @@ import { FormBuilder, FormGroup, Validators, FormArray, FormControl, ReactiveFor
 })
 export class RegistrationFormComponent {
 
+  RegistrationForm: any = FormGroup;
 
-  registrationForm: FormGroup;
 
-  // Course Lists
-  coreCourses: string[] = ['Music Theory', 'Rhythm Lessons'];
-  breadthCourses: string[] = [
-    'Confidence Building',
-    'Ethics, Civility, & Etiquettes',
-    'Communication Skills'
+  countryList: string[] = [
+    'Nigeria', 'United States', 'United Kingdom', 'Canada', 'Australia', 'Germany',
+    'France', 'India', 'China', 'Brazil', 'Japan', 'South Africa'
   ];
-  selectiveCourses: string[] = ['Piano', 'Violin', 'Voice', 'Guitar', 'Trumpet', 'Drums', 'Saxophone'];
-  electiveCourses: string[] = ['Dance', 'Karate', 'Arts and Crafts'];
+  statesList: string[] = [
+    'Abia', 'Adamawa', 'Akwa Ibom', 'Anambra', 'Bauchi', 'Bayelsa', 'Benue', 'Borno',
+    'Cross River', 'Delta', 'Ebonyi', 'Edo', 'Ekiti', 'Enugu', 'Gombe', 'Imo', 'Jigawa',
+    'Kaduna', 'Kano', 'Katsina', 'Kebbi', 'Kogi', 'Kwara', 'Lagos', 'Nasarawa', 'Niger',
+    'Ogun', 'Ondo', 'Osun', 'Oyo', 'Plateau', 'Rivers', 'Sokoto', 'Taraba', 'Yobe', 'Zamfara',
+    'Federal Capital Territory (FCT)'
+  ];
+
+  form: FormGroup;
+  maxSelectable = 2; // Max checkboxes allowed
+  selectedCount = 0;
+  courseList = ['Piano', 'Violin', 'Voice', 'Guitar', 'Trumpet', 'Drums', 'Saxophone'];
+
+  // form: FormGroup<{ selectiveCourses: FormArray<FormControl<boolean | null>>; }>;
+
 
   constructor(private fb: FormBuilder) {
-    this.registrationForm = this.fb.group({
+
+    this.form = this.fb.group({
+      selectiveCourses: this.fb.array([])  // ✅ Initialize FormArray
+
+    });
+
+    this.initializeForm();
+  }
+
+  initializeForm(): void {
+    const coursesArray = this.form.get('selectiveCourses') as FormArray;
+    this.courseList.forEach(() => coursesArray.push(this.fb.control(false)));
+  }
+
+  get selectiveCourses(): FormArray {
+    return this.form.get('selectiveCourses') as FormArray;
+  }
+
+  get isMaxReached(): boolean {
+    return this.selectiveCourses.value.filter((v: boolean) => v).length >= this.maxSelectable;
+  }
+
+  onCheckboxChange(): void {
+    if (this.isMaxReached) {
+      // ✅ Disable all checkboxes when max is reached
+      this.selectiveCourses.controls.forEach(control => {
+        if (!control.value) control.disable(); // Disable unchecked boxes
+      });
+    } else {
+      // ✅ Enable all checkboxes if max is not reached
+      this.selectiveCourses.controls.forEach(control => control.enable());
+    }
+  }
+
+
+  ngOnInit(): void {
+    this.RegistrationForm = this.fb.group({
       surname: ['', Validators.required],
-      otherNames: ['', Validators.required],
-      dateOfBirth: ['', Validators.required],
+      name: ['', Validators.required],
+      otherName: ['', Validators.required],
+      dob: ['', Validators.required],
       gender: ['', Validators.required],
-      phoneNumber: ['', [Validators.required, Validators.pattern('^[0-9]+$')]],
+      phone: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
+      address: ['', Validators.required],
       stateOfResidence: ['', Validators.required],
       nationality: ['', Validators.required],
       stateOfOrigin: ['', Validators.required],
@@ -40,18 +88,18 @@ export class RegistrationFormComponent {
       preferredLocation: ['', Validators.required],
       preferredDays: ['', Validators.required],
       breadthCourse: ['', Validators.required],
-      selectiveCourses: [[], Validators.required],
-      electiveCourse: ['', Validators.required]
+      coreCourse: ['', Validators.required],
+      electiveCourse: ['', Validators.required],
+      selectiveCourse: ['', Validators.required]
     });
   }
 
   onSubmit() {
-    if (this.registrationForm.valid) {
-      console.log('Form Submitted:', this.registrationForm.value);
-      alert('Registration Successful!');
-    } else {
-      alert('Please fill all required fields.');
+    if (this.RegistrationForm.valid) {
+      console.log(this.RegistrationForm.value);
+      alert('Form submitted successfully!');
     }
   }
-}
 
+
+}

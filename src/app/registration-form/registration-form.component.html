@@ -1,146 +1,168 @@
-<section class="section-form">
+<section class="section-form" [formGroup]="RegistrationForm" (ngSubmit)="onSubmit()">
     <div class="form-container">
-        <h1 style="color: rgb(26, 171, 96); text-align: center; margin-bottom: 2rem;">The Eagles Music Academy
-            Enrollment
+        <h1 style="color: rgb(26, 171, 96); text-align: center; margin-bottom: 2rem;">
+            The Eagles Music Academy Enrollment
         </h1>
 
         <!-- Bio Data Section -->
         <div class="form-section">
             <h2 class="form-heading">Bio Data</h2>
             <div class="form-grid">
-                <div class="col-md-12">
-                    <input class="input-name form-control required" type="text" name="Surname" placeholder="Surname*" />
-                </div>
-                <div class="col-md-12">
-                    <input class="input-name form-control required" type="text" name="name" placeholder="Name*" />
-                </div>
-                <div class="col-lg-12">
-                    <input class="input-name form-control required" type="text" name="Other Name"
-                        placeholder="Other Name*" />
-                </div>
-                <div class="col-md-12">
-                    <input class="input-name form-control required" type="text" name="Date Of Birth"
-                        placeholder="DD/MM/YY*" />
-                </div>
-                <div class="col-md-12">
-                    <select>
-                        <option value="" disabled selected>Select Gender*</option>
-                        <option value="Male">Male</option>
-                        <option value="Female">Female</option>
-                    </select>
-                </div>
+                <input formControlName="surname" type="text" placeholder="Surname*" class="form-control" required />
+                <input formControlName="name" type="text" placeholder="Name*" class="form-control" required />
+                <input formControlName="otherName" type="text" placeholder="Other Name*" class="form-control"
+                    required />
+                <input formControlName="dob" type="text" placeholder="DD/MM/YY*" class="form-control" required />
+                <select formControlName="gender" required>
+                    <option value="" disabled selected>Select Gender*</option>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                </select>
             </div>
+        </div>
 
-            <!-- Contact Details -->
-            <div class="form-section">
-                <h2 class="form-heading">Contact Details</h2>
-                <div class="form-grid">
-                    <div class="form-group">
-                        <input type="tel" required placeholder="phone Number*">
-                    </div>
-                    <div class="form-group">
+        <!-- Contact Details -->
+        <div class="form-section">
+            <h2 class="form-heading">Contact Details</h2>
+            <div class="form-grid">
+                <input formControlName="phone" type="tel" placeholder="Phone Number*" required />
+                <input formControlName="email" type="email" placeholder="Email*" required />
+                <!-- 
+                <select formControlName="stateOfResidence" required>
+                    <option value="">Select State</option>
+                </select> -->
 
-                        <input type="email" required placeholder="email*">
-                    </div>
-                    <div class="form-group">
-                        <textarea required placeholder="Residential Address*" rows="3"></textarea>
-                    </div>
-                    <div class="form-group">
-                        <label class="required">State of Residence</label>
-                        <select required>
-                            <option value="">Select State</option>
-                            <!-- Add state options -->
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label class="required">Nationality</label>
-                        <select required>
-                            <option value="">Select Nationality</option>
-                            <!-- Add nationality options -->
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label class="required">State of Origin</label>
-                        <select required>
-                            <option value="">Select State</option>
-                            <!-- Add state options -->
-                        </select>
-                    </div>
-                </div>
+
+
+                <input list="states" id="state" formControlName="stateOfResidence" placeholder="State*">
+
+                <datalist id="states">
+                    <option *ngFor="let state of statesList" [value]="state"></option>
+                </datalist>
+                <!-- 
+                <select formControlName="nationality" required>
+                    <option *ngFor="let country of countryList" [value]="country">{{country}}</option>
+                </select> -->
+
+
+                <input list="countries" id="nationality" formControlName="nationality" placeholder="Nationality*">
+                <datalist id="countries">
+                    <option *ngFor="let country of countryList" [value]="country"></option>
+                </datalist>
+
+
+                <!-- <select formControlName="stateOfOrigin" required>
+                    <option value="">Select State</option>
+                </select> -->
+
+                <textarea formControlName="address" placeholder="Residential Address*" rows="3" required></textarea>
+
             </div>
+        </div>
 
-            <!-- Programs -->
-            <div class="form-section">
-                <h2 class="form-heading">Program Details</h2>
-                <div class="form-grid">
-                    <div class="form-group">
-                        <label class="required">Program Type</label>
-                        <select required>
-                            <option value="">Select Program</option>
-                            <option>Home Lesson</option>
-                            <option>Virtual Lesson</option>
-                            <option>Group Lesson</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label class="required">Preferred Location</label>
-                        <select required>
-                            <option value="">Select Location</option>
-                            <option>Home</option>
-                            <option>Virtual</option>
-                            <option>Centre</option>
-
-                            <!-- Add location options -->
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label class="required">Preferred Days (<i>for Home lesson only</i>)</label>
-                        <select required>
-                            <option value="">Select Days</option>
-                            <option>Monday</option>
-                            <option>Tuesday</option>
-                            <option>Weekends</option>
-                            <option>Wednesday</option>
-                            <option>Thurdays</option>
-                            <option>Friday</option>
-                            <option>Saturday</option>
-                            <option>Sunday</option>
-                        </select>
-                    </div>
-                </div>
+        <!-- Program Details -->
+        <div class="form-section">
+            <h2 class="form-heading">Program Details</h2>
+            <div class="form-grid">
+                <select formControlName="programType" required>
+                    <option value="">Select Program</option>
+                    <option>Home Lesson</option>
+                    <option>Virtual Lesson</option>
+                    <option>Group Lesson</option>
+                </select>
+                <select formControlName="preferredLocation" required>
+                    <option value="">Select Location</option>
+                    <option>Home</option>
+                    <option>Virtual</option>
+                    <option>Centre</option>
+                </select>
+                <select formControlName="preferredDays" required>
+                    <option value="">Select Days</option>
+                    <option>Monday</option>
+                    <option>Tuesday</option>
+                    <option>Weekends</option>
+                </select>
             </div>
+        </div>
 
-            <!-- Courses -->
-            <div class="form-section">
+        <!-- Course Selection -->
+        <div class="form-section form-grid">
+            <div class="course-group">
                 <h2 class="form-heading">Course Selection</h2>
-                <div class="courses-section">
-                    <!-- Core Courses -->
-                    <div class="course-group">
-                        <h2>Core Courses (Compulsory)</h2>
-                        <div class="checkbox-group">
-                            <label><input type="checkbox" checked disabled> Music Theory</label>
-                        </div>
-                        <div class="checkbox-group">
-                            <label><input type="checkbox" checked disabled> Rhythm Lessons</label>
-                        </div>
-                    </div>
+                <h2>Core Courses<br> (Max-1)</h2>
+                <div class="checkbox-group">
+                    <label><input type="checkbox" checked disabled> Music Theory</label>
+                    <label><input type="checkbox" checked disabled> Rhythm Lessons</label>
+                </div>
+            </div>
 
-                    <!-- Breadth Courses -->
-                    <div class="course-group">
-                        <h2>Breadth Courses<br> (Max-1)</h2>
-                        <div class="radio-group">
-                            <label><input type="radio" name="breadth"> Confidence Building</label>
-                        </div>
-                        <div class="radio-group">
-                            <label><input type="radio" name="breadth"> Ethics, Civility & Etiquettes</label>
-                        </div>
-                        <div class="radio-group">
-                            <label><input type="radio" name="breadth"> Communication Skills</label>
-                        </div>
-                    </div>
+            <!-- Breadth Courses -->
+            <div class="course-group">
+                <h2>Breadth Courses<br> (Max-1)</h2>
+                <div class="radio-group">
+                    <label><input type="radio" formControlName="breadthCourse" value="Confidence Building"> Confidence
+                        Building</label>
+                    <label><input type="radio" formControlName="breadthCourse" value="Communication Skills">
+                        Communication
+                        Skills</label>
+                    <label><input type="radio" formControlName="breadthCourse" value="Ethics,
+                        Civility
+                        & Etiquettes">Ethics,
+                        Civility
+                        & Etiquettes</label>
+                </div>
+            </div>
 
-                    <!-- Selective Courses -->
-                    <div class="course-group">
+            <div class="course-group">
+                <h2>Elective Courses<br> (Max-1)</h2>
+                <div class="radio-group">
+                    <label><input type="radio" formControlName="electiveCourse" value="Karate"> Karate
+                    </label>
+                    <label><input type="radio" formControlName="electiveCourse" value="Dance"> Dance
+                    </label>
+                    <label><input type="radio" formControlName="electiveCourse" value="Confidence Building">Arts and
+                        Crafts
+                    </label>
+                </div>
+            </div>
+
+            <div class="course-group">
+                <h2>Selective Courses<br> (Max-2)</h2>
+                <div [formGroup]="form">
+                    <div formArrayName="selectiveCourses">
+                        <label *ngFor="let course of selectiveCourses.controls; let i = index">
+                            <input type="checkbox" [formControlName]="i" (change)="onCheckboxChange()"
+                                [disabled]="isMaxReached && !course.value" />
+                            {{ courseList[i] }}
+                        </label>
+                    </div>
+                </div>
+                <!-- <div class="checkbox-group">
+                    <label><input type="checkbox"> Violin</label>
+                    <label><input type="checkbox"> Piano</label>
+                    <label><input type="checkbox"> Guitar</label>
+                    <label><input type="checkbox"> Drums</label>
+                    <label><input type="checkbox"> Saxophone</label>
+                    <label><input type="checkbox"> Voice</label>
+                    <label><input type="checkbox"> Trumpet</label>
+                </div> -->
+            </div>
+
+
+
+        </div>
+        <div style="text-align: center; margin-top: 2rem;">
+            <button type="submit" [disabled]="!RegistrationForm.valid">Submit Application</button>
+        </div>
+    </div>
+</section>
+
+
+
+
+
+<!-- Selective Courses -->
+<!-- <div class="course-group">
                         <h2>Selective Courses <br> (Max-2)</h2>
                         <div class="checkbox-group">
                             <label><input type="checkbox"> Piano</label>
@@ -163,10 +185,10 @@
                         <div class="checkbox-group">
                             <label><input type="checkbox"> Saxophone</label>
                         </div>
-                    </div>
+                    </div> -->
 
-                    <!-- Elective Courses -->
-                    <div class="course-group">
+<!-- Elective Courses -->
+<!-- <div class="course-group">
                         <h2>Elective Courses<br> (Max-1)</h2>
                         <div class="radio-group">
                             <label><input type="radio" name="elective"> Dance</label>
@@ -177,12 +199,4 @@
                         <div class="radio-group">
                             <label><input type="radio" name="elective"> Arts and Crafts</label>
                         </div>
-                    </div>
-                </div>
-            </div>
-            <div style="text-align: center; margin-top: 2rem;">
-                <button type="submit">Submit Application</button>
-            </div>
-        </div>
-    </div>
-</section>
+                    </div> -->
