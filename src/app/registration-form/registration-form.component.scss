@@ -123,7 +123,7 @@ button:hover {
     }
 
     .form-section {
-      padding: 1rem;
+      padding: 0;
 
     }
 
@@ -134,7 +134,8 @@ button:hover {
     }
 
     input, select, textarea {
-        padding: 0.6rem; /* Smaller input padding */
+        // padding: 0.3rem; /* Smaller input padding */
+        margin: 0.6rem !important;
     }
 
     .form-group {
@@ -143,7 +144,7 @@ button:hover {
     }
     
     .form-container{
-        padding: 0;
+        padding: 1rem;
     }
 }
 

@@ -117,11 +117,6 @@ export class RegistrationFormComponent {
     }
   }
 
-
-
-
-
-
   // Removed duplicate constructor
 
 
