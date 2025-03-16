@@ -3,21 +3,28 @@
         <h1 style="color: rgb(26, 171, 96); text-align: center; margin-bottom: 2rem;">
             The Eagles Music Academy Enrollment
         </h1>
-
         <!-- Bio Data Section -->
-        <div class="form-section">
+        <div id="contact_form" class="form-section">
             <h2 class="form-heading">Bio Data</h2>
-            <div class="form-grid">
+            <div class="form-grid form-group">
                 <input formControlName="surname" type="text" placeholder="Surname*" class="form-control" required />
                 <input formControlName="name" type="text" placeholder="Name*" class="form-control" required />
                 <input formControlName="otherName" type="text" placeholder="Other Name*" class="form-control"
                     required />
-                <input formControlName="dob" type="text" placeholder="DD/MM/YY*" class="form-control" required />
-                <select formControlName="gender" required>
+                <input formControlName="dob" type="text" placeholder="Date of birth*" class="form-control" required />
+
+                <!-- <select formControlName="gender" required>
                     <option value="" disabled selected>Select Gender*</option>
                     <option value="Male">Male</option>
                     <option value="Female">Female</option>
-                </select>
+                </select> -->
+
+                <input list="gender" id="GenderOptions" formControlName="gender" placeholder=" Gender*">
+                <datalist id="gender">
+                    <option *ngFor="let gender of GenderOptions" [value]="gender"></option>
+                </datalist>
+
+
             </div>
         </div>
 
@@ -27,73 +34,34 @@
             <div class="form-grid">
                 <input formControlName="phone" type="tel" placeholder="Phone Number*" required />
                 <input formControlName="email" type="email" placeholder="Email*" required />
-                <!-- 
-                <select formControlName="stateOfResidence" required>
-                    <option value="">Select State</option>
-                </select> -->
-
-
-
                 <input list="states" id="state" formControlName="stateOfResidence" placeholder="State*">
-
                 <datalist id="states">
                     <option *ngFor="let state of statesList" [value]="state"></option>
                 </datalist>
-                <!-- 
-                <select formControlName="nationality" required>
-                    <option *ngFor="let country of countryList" [value]="country">{{country}}</option>
-                </select> -->
-
-
                 <input list="countries" id="nationality" formControlName="nationality" placeholder="Nationality*">
                 <datalist id="countries">
                     <option *ngFor="let country of countryList" [value]="country"></option>
                 </datalist>
-
-
-                <!-- <select formControlName="stateOfOrigin" required>
-                    <option value="">Select State</option>
-                </select> -->
-
                 <textarea formControlName="address" placeholder="Residential Address*" rows="3" required></textarea>
-
             </div>
         </div>
-
         <!-- Program Details -->
         <div class="form-section">
             <h2 class="form-heading">Program Details</h2>
             <div class="form-grid">
-
-
-
                 <input list="programs" id="programType" formControlName="programtype" placeholder="Program Type*">
                 <datalist id="programs">
                     <option *ngFor="let program of programList" [value]="program"></option>
                 </datalist>
-
-                <!-- 
-                <select formControlName="programType" required>
-                    <option value="">Select Program</option>
-                    <option>Home Lesson</option>
-                    <option>Virtual Lesson</option>
-                    <option>Group Lesson</option>
-                </select> -->
-
-                <select formControlName="preferredLocation" required>
-                    <option value="">Select Location</option>
-                    <option>Home</option>
-                    <option>Virtual</option>
-                    <option>Centre</option>
-                </select>
-
-                <select formControlName="preferredDays" required>
-                    <option value="">Select Days</option>
-                    <option>Monday</option>
-                    <option>Tuesday</option>
-                    <option>Weekends</option>
-                </select>
-
+                <input list="Day" id="preferredDay" formControlName="preferredDay" placeholder="PreferredDay*">
+                <datalist id="Day">
+                    <option *ngFor="let Day of dayList" [value]="Day"></option>
+                </datalist>
+                <input list="location" id="preferredLocation" formControlName="PreferredLocation"
+                    placeholder="preferredLocation*">
+                <datalist id="location">
+                    <option *ngFor="let location of locationList" [value]="location"></option>
+                </datalist>
             </div>
         </div>
 

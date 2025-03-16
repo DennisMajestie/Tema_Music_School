@@ -3,7 +3,7 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, FormArray, FormControl, ReactiveFormsModule } from '@angular/forms';
 import { Router, RouterModule } from '@angular/router';
 
-declare var squad: any;
+// declare var squad: any;
 
 @Component({
   selector: 'app-registration-form',
@@ -39,9 +39,14 @@ export class RegistrationFormComponent {
     'Sunday'
   ];
 
-  loctionList: string[] = [
+  locationList: string[] = [
     'Home', 'Virtual', 'Academy Centre'
   ];
+
+  GenderOptions: string[] = [
+    'Male', 'Female'
+  ];
+
 
   form: FormGroup;
   maxSelectable = 2; // Max checkboxes allowed
@@ -121,25 +126,25 @@ export class RegistrationFormComponent {
 
 
 
-  SquadPay() {
-    const squadInstance = new (window as any).squad({
-      onClose: () => console.log("Widget closed"),
-      onLoad: () => console.log("Widget loaded successfully"),
-      onSuccess: () => this.Successpay(),
-      key: "sandbox_pk_074a2e5370e9df8d54eaf079a6522f187c30ce2988e8",
-      transaction_ref: "hnjfgnjhgnjhnjgk",
-      email: "akibuismail@yahoo.com",
-      amount: 5000 * 100,
-      currency_code: "NGN"
-    });
-    squadInstance.setup();
-    squadInstance.open();
-  }
+  // SquadPay() {
+  //   const squadInstance = new (window as any).squad({
+  //     onClose: () => console.log("Widget closed"),
+  //     onLoad: () => console.log("Widget loaded successfully"),
+  //     onSuccess: () => this.Successpay(),
+  //     key: "sandbox_pk_074a2e5370e9df8d54eaf079a6522f187c30ce2988e8",
+  //     transaction_ref: "hnjfgnjhgnjhnjgk",
+  //     email: "akibuismail@yahoo.com",
+  //     amount: 5000 * 100,
+  //     currency_code: "NGN"
+  //   });
+  //   squadInstance.setup();
+  //   squadInstance.open();
+  // }
 
 
 
-  Successpay() {
-    console.log("This has worked!")
-    this.route.navigateByUrl("/home");
-  }
+  // Successpay() {
+  //   console.log("This has worked!")
+  //   this.route.navigateByUrl("/home");
+  // }
 }
