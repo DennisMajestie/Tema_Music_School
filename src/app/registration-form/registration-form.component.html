@@ -64,24 +64,36 @@
         <div class="form-section">
             <h2 class="form-heading">Program Details</h2>
             <div class="form-grid">
+
+
+
+                <input list="programs" id="programType" formControlName="programtype" placeholder="Program Type*">
+                <datalist id="programs">
+                    <option *ngFor="let program of programList" [value]="program"></option>
+                </datalist>
+
+                <!-- 
                 <select formControlName="programType" required>
                     <option value="">Select Program</option>
                     <option>Home Lesson</option>
                     <option>Virtual Lesson</option>
                     <option>Group Lesson</option>
-                </select>
+                </select> -->
+
                 <select formControlName="preferredLocation" required>
                     <option value="">Select Location</option>
                     <option>Home</option>
                     <option>Virtual</option>
                     <option>Centre</option>
                 </select>
+
                 <select formControlName="preferredDays" required>
                     <option value="">Select Days</option>
                     <option>Monday</option>
                     <option>Tuesday</option>
                     <option>Weekends</option>
                 </select>
+
             </div>
         </div>
 

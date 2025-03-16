@@ -1,18 +1,21 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, FormArray, FormControl, ReactiveFormsModule } from '@angular/forms';
+import { Router, RouterModule } from '@angular/router';
 
+declare var squad: any;
 
 @Component({
   selector: 'app-registration-form',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule],
+  imports: [CommonModule, ReactiveFormsModule, RouterModule],
   templateUrl: './registration-form.component.html',
   styleUrl: './registration-form.component.scss'
 })
 export class RegistrationFormComponent {
 
   RegistrationForm: any = FormGroup;
+  regform: any = {};
 
 
   countryList: string[] = [
@@ -27,6 +30,19 @@ export class RegistrationFormComponent {
     'Federal Capital Territory (FCT)'
   ];
 
+  programList: string[] = [
+    'Home Lesson', 'Virtual Lesson', 'Group Lesson'
+  ];
+
+  dayList: string[] = [
+    'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday',
+    'Sunday'
+  ];
+
+  loctionList: string[] = [
+    'Home', 'Virtual', 'Academy Centre'
+  ];
+
   form: FormGroup;
   maxSelectable = 2; // Max checkboxes allowed
   selectedCount = 0;
@@ -35,7 +51,7 @@ export class RegistrationFormComponent {
   // form: FormGroup<{ selectiveCourses: FormArray<FormControl<boolean | null>>; }>;
 
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, private route: Router) {
 
     this.form = this.fb.group({
       selectiveCourses: this.fb.array([])  // ✅ Initialize FormArray
@@ -102,4 +118,33 @@ export class RegistrationFormComponent {
   }
 
 
+
+
+
+
+  // Removed duplicate constructor
+
+
+
+  SquadPay() {
+    const squadInstance = new (window as any).squad({
+      onClose: () => console.log("Widget closed"),
+      onLoad: () => console.log("Widget loaded successfully"),
+      onSuccess: () => this.Successpay(),
+      key: "sandbox_pk_074a2e5370e9df8d54eaf079a6522f187c30ce2988e8",
+      transaction_ref: "hnjfgnjhgnjhnjgk",
+      email: "akibuismail@yahoo.com",
+      amount: 5000 * 100,
+      currency_code: "NGN"
+    });
+    squadInstance.setup();
+    squadInstance.open();
+  }
+
+
+
+  Successpay() {
+    console.log("This has worked!")
+    this.route.navigateByUrl("/home");
+  }
 }
