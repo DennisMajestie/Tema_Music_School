@@ -1,138 +1,117 @@
-<section class="section-form" [formGroup]="RegistrationForm" (ngSubmit)="onSubmit()">
-    <div class="form-container">
-        <h1 style="color: rgb(26, 171, 96); text-align: center; margin-bottom: 2rem;">
-            The Eagles Music Academy Enrollment
-        </h1>
-        <!-- Bio Data Section -->
-        <div id="contact_form" class="form-section">
-            <h2 class="form-heading">Bio Data</h2>
-            <div class="form-grid form-group">
-                <input formControlName="surname" type="text" placeholder="Surname*" class="form-control" required />
-                <input formControlName="name" type="text" placeholder="Name*" class="form-control" required />
-                <input formControlName="otherName" type="text" placeholder="Other Name*" class="form-control"
-                    required />
-                <input formControlName="dob" type="text" placeholder="Date of birth*" class="form-control" required />
-
-                <!-- <select formControlName="gender" required>
-                    <option value="" disabled selected>Select Gender*</option>
-                    <option value="Male">Male</option>
-                    <option value="Female">Female</option>
-                </select> -->
-
-                <input list="gender" id="GenderOptions" formControlName="gender" placeholder=" Gender*">
-                <datalist id="gender">
-                    <option *ngFor="let gender of GenderOptions" [value]="gender"></option>
-                </datalist>
-
-
-            </div>
-        </div>
-
-        <!-- Contact Details -->
-        <div class="form-section">
-            <h2 class="form-heading">Contact Details</h2>
-            <div class="form-grid">
-                <input formControlName="phone" type="tel" placeholder="Phone Number*" required />
-                <input formControlName="email" type="email" placeholder="Email*" required />
-                <input list="states" id="state" formControlName="stateOfResidence" placeholder="State*">
-                <datalist id="states">
-                    <option *ngFor="let state of statesList" [value]="state"></option>
-                </datalist>
-                <input list="countries" id="nationality" formControlName="nationality" placeholder="Nationality*">
-                <datalist id="countries">
-                    <option *ngFor="let country of countryList" [value]="country"></option>
-                </datalist>
-                <textarea formControlName="address" placeholder="Residential Address*" rows="3" required></textarea>
-            </div>
-        </div>
-        <!-- Program Details -->
-        <div class="form-section">
-            <h2 class="form-heading">Program Details</h2>
-            <div class="form-grid">
-                <input list="programs" id="programType" formControlName="programtype" placeholder="Program Type*">
-                <datalist id="programs">
-                    <option *ngFor="let program of programList" [value]="program"></option>
-                </datalist>
-                <input list="Day" id="preferredDay" formControlName="preferredDay" placeholder="PreferredDay*">
-                <datalist id="Day">
-                    <option *ngFor="let Day of dayList" [value]="Day"></option>
-                </datalist>
-                <input list="location" id="preferredLocation" formControlName="PreferredLocation"
-                    placeholder="preferredLocation*">
-                <datalist id="location">
-                    <option *ngFor="let location of locationList" [value]="location"></option>
-                </datalist>
-            </div>
-        </div>
-
-        <!-- Course Selection -->
-        <div class="form-section form-grid">
-            <div class="course-group">
-                <h2 class="form-heading">Course Selection</h2>
-                <h2>Core Courses<br> (Max-1)</h2>
-                <div class="checkbox-group">
-                    <label><input type="checkbox" checked disabled> Music Theory</label>
-                    <label><input type="checkbox" checked disabled> Rhythm Lessons</label>
+<form>
+    <section class="section-form" [formGroup]="regForm">
+        <div class="form-container">
+            <h1 style="color: rgb(26, 171, 96); text-align: center; margin-bottom: 2rem;">
+                The Eagles Music Academy Enrollment
+            </h1>
+            <!-- Bio Data Section -->
+            <div id="contact_form" class="form-section">
+                <div class="form-section">
+                    <h2 class="form-heading">Bio Data</h2>
+                    <div class="form-grid">
+                        <input formControlName="fName" type="text" placeholder="Firstname*" class="form-control" />
+                        <input formControlName="lName" type="text" placeholder="LastName*" class="form-control" />
+                        <input formControlName="otherName" type="text" placeholder="Other Name* (Optional)"
+                            class="form-control" />
+                        <input formControlName="dob" type="text" placeholder="Date of Birth*" class="form-control" />
+                        <label for="gender">Gender
+                            <select2 [data]="formGender" customSearchEnabled (search)="_search($event)"
+                                formControlName="gender" placeholder="Select Gender"></select2>
+                        </label>
+                    </div>
                 </div>
             </div>
-
-            <!-- Breadth Courses -->
-            <div class="course-group">
-                <h2>Breadth Courses<br> (Max-1)</h2>
-                <div class="radio-group">
-                    <label><input type="radio" formControlName="breadthCourse" value="Confidence Building"> Confidence
-                        Building</label>
-                    <label><input type="radio" formControlName="breadthCourse" value="Communication Skills">
-                        Communication
-                        Skills</label>
-                    <label><input type="radio" formControlName="breadthCourse" value="Ethics,
+            <!-- Contact Details -->
+            <div class="form-section">
+                <h2 class="form-heading">Contact Details</h2>
+                <div class="form-grid">
+                    <input formControlName="phone" type="tel" placeholder="Phone Number*" />
+                    <input formControlName="email" type="email" placeholder="Email*" />
+                    <label for="stateOfOrigin">Nationality
+                        <select2 [data]="formCountry" customSearchEnabled (search)="_search($event)"
+                            formControlName="nationality" placeholder="Select Country"></select2>
+                    </label>
+                    <label for="stateOfOrigin">State of Origin
+                        <select2 [data]="formState" customSearchEnabled (search)="_search($event)"
+                            formControlName="stateOfOrigin" placeholder="State of Origin"></select2>
+                    </label>
+                    <label for="stateOfResidence">State of Residence
+                        <select2 [data]="formState" customSearchEnabled (search)="_search($event)"
+                            formControlName="stateOfResidence" placeholder="State of Residence"></select2>
+                    </label>
+                    <textarea formControlName="address" placeholder="Residential Address*" rows="3"></textarea>
+                </div>
+            </div>
+            <!-- Program Details -->
+            <div class="form-section">
+                <h2 class="form-heading">Program Details</h2>
+                <div class="form-grid">
+                    <label for="stateOfOrigin">Program Type
+                        <select2 [data]="formProgram" customSearchEnabled (search)="_search($event)"
+                            formControlName="programType" placeholder="Select Program"></select2>
+                    </label>
+                    <label for="programDays">Program Day
+                        <select2 [data]="formDays" customSearchEnabled (search)="_search($event)"
+                            formControlName="preferredDays" placeholder="Preferred Days"></select2>
+                    </label>
+                    <label for="programLocation">Program Location
+                        <select2 [data]="formLocation" customSearchEnabled (search)="_search($event)"
+                            formControlName="preferredLocation" placeholder="Preferred Location"></select2>
+                    </label>
+                </div>
+            </div>
+            <!-- Course Selection -->
+            <div class="form-section form-grid">
+                <div class="course-group">
+                    <h2 class="form-heading">Course Selection</h2>
+                    <h2>Core Courses<br> (Max-1)</h2>
+                    <div class="checkbox-group">
+                        <label><input type="checkbox" formControlName="coreCourse"> Music Theory</label>
+                        <label><input type="checkbox" formControlName="coreCourse"> Rhythm Lessons</label>
+                    </div>
+                </div>
+                <!-- Breadth Courses -->
+                <div class="course-group">
+                    <h2>Breadth Courses<br> (Max-1)</h2>
+                    <div class="radio-group">
+                        <label><input type="radio" formControlName="breadthCourse" value="Confidence Building">
+                            Confidence
+                            Building</label>
+                        <label><input type="radio" formControlName="breadthCourse" value="Communication Skills">
+                            Communication
+                            Skills</label>
+                        <label><input type="radio" formControlName="breadthCourse" value="Ethics,
                         Civility
                         & Etiquettes">Ethics,
-                        Civility
-                        & Etiquettes</label>
+                            Civility
+                            & Etiquettes</label>
+                    </div>
                 </div>
-            </div>
-
-            <div class="course-group">
-                <h2>Elective Courses<br> (Max-1)</h2>
-                <div class="radio-group">
-                    <label><input type="radio" formControlName="electiveCourse" value="Karate"> Karate
-                    </label>
-                    <label><input type="radio" formControlName="electiveCourse" value="Dance"> Dance
-                    </label>
-                    <label><input type="radio" formControlName="electiveCourse" value="Confidence Building">Arts and
-                        Crafts
-                    </label>
+                <div class="course-group">
+                    <h2>Elective Courses<br> (Max-1)</h2>
+                    <div class="radio-group">
+                        <label><input type="radio" formControlName="electiveCourse" value="Karate"> Karate
+                        </label>
+                        <label><input type="radio" formControlName="electiveCourse" value="Dance"> Dance
+                        </label>
+                        <label><input type="radio" formControlName="electiveCourse" value="Confidence Building">Arts and
+                            Crafts
+                        </label>
+                    </div>
                 </div>
-            </div>
-
-            <div class="course-group">
-                <h2>Selective Courses<br> (Max-2)</h2>
-                <div [formGroup]="form">
-                    <div formArrayName="selectiveCourses">
+                <div class="course-group">
+                    <h2>Selective Courses<br> (Max-2)</h2>
+                    <div>
                         <label *ngFor="let course of selectiveCourses.controls; let i = index">
-                            <input type="checkbox" [formControlName]="i" (change)="onCheckboxChange()"
-                                [disabled]="isMaxReached && !course.value" />
+                            <input type="checkbox" formControlName="selectiveCourses" />
                             {{ courseList[i] }}
                         </label>
                     </div>
                 </div>
-                <!-- <div class="checkbox-group">
-                    <label><input type="checkbox"> Violin</label>
-                    <label><input type="checkbox"> Piano</label>
-                    <label><input type="checkbox"> Guitar</label>
-                    <label><input type="checkbox"> Drums</label>
-                    <label><input type="checkbox"> Saxophone</label>
-                    <label><input type="checkbox"> Voice</label>
-                    <label><input type="checkbox"> Trumpet</label>
-                </div> -->
             </div>
-
-
-
+            <div style="text-align: center; margin-top: 2rem;">
+                <button type="submit" (click)="sendUser()">Submit Application</button>
+            </div>
         </div>
-        <div style="text-align: center; margin-top: 2rem;">
-            <button type="submit" [disabled]="!RegistrationForm.valid">Submit Application</button>
-        </div>
-    </div>
-</section>
+    </section>
+</form>

@@ -51,7 +51,7 @@ label {
     font-weight: bold;
 }
 
-input, select, textarea {
+input, select, textarea .slect-size{
     width: 100%;
     padding: 0.8rem;
     border: 1px solid #e4e0e0b2;
@@ -182,3 +182,4 @@ input[type="checkbox"], input[type="radio"] {
     color: #e74c3c;
     margin-left: 3px;
 }
+

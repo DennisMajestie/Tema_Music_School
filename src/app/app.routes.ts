@@ -7,6 +7,7 @@ import { TuitionComponent } from './tuition/tuition.component';
 import { BlogComponent } from './blog/blog.component';
 import { ProgramsComponent } from './programs/programs.component';
 import { RegistrationFormComponent } from './registration-form/registration-form.component';
+import { TestComponent } from './test/test.component';
 
 
 
@@ -14,11 +15,34 @@ export const routes: Routes = [
 
     { path: '', component: HomeComponent },
 
-    { path: 'about', component: AboutUsComponent },
-    { path: 'contact', component: ContactComponent },
-    { path: 'courses', component: CoursesComponent },
-    { path: 'tuition', component: TuitionComponent },
-    { path: 'blog', component: BlogComponent },
-    { path: 'programs', component: ProgramsComponent },
-    { path: 'reg-form', component: RegistrationFormComponent },
+    {
+        path: 'about',
+        component: AboutUsComponent
+    },
+    {
+        path: 'contact',
+        component: ContactComponent
+    },
+    {
+        path: 'courses',
+        component: CoursesComponent
+    },
+    {
+        path: 'tuition',
+        component: TuitionComponent
+    },
+    {
+        path: 'blog',
+        component: BlogComponent
+    },
+    {
+        path: 'programs',
+        component: ProgramsComponent
+    },
+    {
+        path: 'reg-form',
+        component: RegistrationFormComponent
+    },
+    { path: 'test', component: TestComponent }
+
 ];

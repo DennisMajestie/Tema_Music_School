@@ -251,7 +251,7 @@ img {
 
 .navbar-custom .nav-link {
     padding-right: 20px !important;
-    padding-left: 20px !important;
+    /* padding-left: 20px !important; */
 }
 
 .navbar-custom li.nav-item a.nav-link:hover,
@@ -313,6 +313,7 @@ img {
 
 .navbar-brand img {
     max-width: 350px;
+    padding: 40px;
 }
 
 /* =========================== Index page ============================ */
