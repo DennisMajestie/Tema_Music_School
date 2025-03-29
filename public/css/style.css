@@ -2271,11 +2271,18 @@ button.list-group-item:hover {
         font-size: 18px;
     }
 
+
+    .list-unstyled li {
+        margin: 10px;
+    }
+
     /* Responsive margin*/
 
     .res-margin,
     .margin1 {
         margin-top: 30px;
+        padding: 20;
+
     }
 
     /*navbar */
