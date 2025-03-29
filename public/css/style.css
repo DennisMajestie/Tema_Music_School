@@ -2479,6 +2479,7 @@ button.list-group-item:hover {
 
     .navbar-brand img {
         max-width: 200px;
+        padding: 0;
     }
 
     /* jumbotron */
@@ -2490,7 +2491,7 @@ button.list-group-item:hover {
     /* slider */
 
     #layerslider {
-        height: 230px !important;
+        height: 100vh !important;
     }
 
     .header-text h1 {
