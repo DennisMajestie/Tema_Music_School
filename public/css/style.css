@@ -2378,6 +2378,7 @@ button.list-group-item:hover {
         font-size: 30px;
         line-height: 34px;
         margin: 0px;
+        padding: 10px;
     }
 
     .ls-nav-prev,
@@ -2495,7 +2496,7 @@ button.list-group-item:hover {
     }
 
     .header-text h1 {
-        font-size: 20px !important;
+        font-size: 30px !important;
         line-height: 20px;
         margin: 0px;
     }
