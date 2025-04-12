@@ -7,7 +7,7 @@ import { TuitionComponent } from './tuition/tuition.component';
 import { BlogComponent } from './blog/blog.component';
 import { ProgramsComponent } from './programs/programs.component';
 import { RegistrationFormComponent } from './registration-form/registration-form.component';
-import { TestComponent } from './test/test.component';
+
 
 
 
@@ -43,6 +43,5 @@ export const routes: Routes = [
         path: 'reg-form',
         component: RegistrationFormComponent
     },
-    { path: 'test', component: TestComponent }
 
 ];

@@ -251,7 +251,7 @@ img {
 
 .navbar-custom .nav-link {
     padding-right: 20px !important;
-    /* padding-left: 20px !important; */
+    padding-left: 20px !important;
 }
 
 .navbar-custom li.nav-item a.nav-link:hover,
@@ -299,7 +299,7 @@ img {
     position: relative;
     float: right;
     border-radius: 50%;
-    min-width: 70px;
+    min-width: 80px;
 }
 
 /*===========================
@@ -312,8 +312,8 @@ img {
 }
 
 .navbar-brand img {
-    max-width: 350px;
-    padding: 40px;
+    max-width: 400px;
+    padding: 70px;
 }
 
 /* =========================== Index page ============================ */
@@ -396,7 +396,7 @@ img {
 ============================ */
 
 #call-to-action1 {
-    background: url(../img/Fun2.jpg);
+    background: url(../petlove/img/tema-bus.jpeg);
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
