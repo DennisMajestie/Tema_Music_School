@@ -834,13 +834,7 @@ img {
 /* ===========================
 --- Contact
 ============================ */
-
-#contact {
-    background-image: url(../img/bgcontact.png);
-    background-repeat: no-repeat;
-    background-position: bottom right;
-}
-
+/* fs
 /* Map */
 
 #map-canvas {
