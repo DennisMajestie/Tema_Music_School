@@ -9,14 +9,18 @@
                 <div class="form-section">
                     <h2 class="form-heading">Bio Data</h2>
                     <div class="form-grid">
-                        <input formControlName="fName" type="text" placeholder="Firstname*" />
+                        <input formControlName="fName" type="text" placeholder="Firstname*" class="form-control" />
+
                         <input formControlName="lName" type="text" placeholder="LastName*" class="form-control" />
+
                         <input formControlName="otherName" type="text" placeholder="Other Name* (Optional)"
                             class="form-control" />
+
                         <input formControlName="dob" type="text" placeholder="Date of Birth*" class="form-control" />
+
                         <label for="gender">Gender
                             <select2 [data]="formGender" customSearchEnabled (search)="_search($event)"
-                                formControlName="gender" placeholder="Select Gender"></select2>
+                                formControlName="gender" class="form-control" placeholder="Select Gender"></select2>
                         </label>
                     </div>
                 </div>
@@ -25,21 +29,30 @@
             <div class="form-section">
                 <h2 class="form-heading">Contact Details</h2>
                 <div class="form-grid">
-                    <input formControlName="phone" type="tel" placeholder="Phone Number*" />
-                    <input formControlName="email" type="email" placeholder="Email*" />
+                    <input formControlName="phone" type="tel" placeholder="Phone Number*" class="form-control" />
+
+                    <input formControlName=" email" type="email" placeholder="Email*" class="form-control" />
+
                     <label for="stateOfOrigin">Nationality
                         <select2 [data]="formCountry" customSearchEnabled (search)="_search($event)"
-                            formControlName="nationality" placeholder="Select Country"></select2>
+                            formControlName="nationality" placeholder="Select Country" class="form-control"></select2>
                     </label>
+
                     <label for="stateOfOrigin">State of Origin
                         <select2 [data]="formState" customSearchEnabled (search)="_search($event)"
-                            formControlName="stateOfOrigin" placeholder="State of Origin"></select2>
+                            formControlName="stateOfOrigin" placeholder="State of Origin" class="form-control">
+                        </select2>
                     </label>
+
                     <label for="stateOfResidence">State of Residence
                         <select2 [data]="formState" customSearchEnabled (search)="_search($event)"
-                            formControlName="stateOfResidence" placeholder="State of Residence"></select2>
+                            formControlName="stateOfResidence" placeholder="State of Residence" class="form-control">
+                        </select2>
                     </label>
-                    <textarea formControlName="address" placeholder="Residential Address*" rows="3"></textarea>
+
+                    <textarea formControlName="address" placeholder="Residential Address*" rows="3"
+                        class="form-control"></textarea>
+
                 </div>
             </div>
             <!-- Program Details -->
@@ -48,15 +61,16 @@
                 <div class="form-grid">
                     <label for="stateOfOrigin">Program Type
                         <select2 [data]="formProgram" customSearchEnabled (search)="_search($event)"
-                            formControlName="programType" placeholder="Select Program"></select2>
+                            formControlName="programType" placeholder="Select Program" class="form-control"> </select2>
                     </label>
                     <label for="programDays">Program Day
                         <select2 [data]="formDays" customSearchEnabled (search)="_search($event)"
-                            formControlName="preferredDays" placeholder="Preferred Days"></select2>
+                            formControlName="preferredDays" placeholder="Preferred Days" class="form-control"></select2>
                     </label>
                     <label for="programLocation">Program Location
                         <select2 [data]="formLocation" customSearchEnabled (search)="_search($event)"
-                            formControlName="preferredLocation" placeholder="Preferred Location"></select2>
+                            formControlName="preferredLocation" placeholder="Preferred Location" class="form-control">
+                        </select2>
                     </label>
                 </div>
             </div>

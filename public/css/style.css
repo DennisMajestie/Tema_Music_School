@@ -1489,7 +1489,7 @@ ul.breadcrumb {
 /* Labels */
 
 .label {
-    padding: .2em .6em .3em;
+
     font-size: 16px;
     font-weight: 600;
     line-height: 1.8;
@@ -1501,7 +1501,6 @@ ul.breadcrumb {
 
 label {
     font-weight: 400;
-    margin-top: 10px;
     display: block;
     max-width: 100%;
     font-size: 16px;
