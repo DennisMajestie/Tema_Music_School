@@ -32,6 +32,7 @@ export class RegistrationFormComponent {
   formProgram: any;
   formStateResidence: any;
   sendThisMessage: any;
+  formCourse: any;
 
   constructor(private fb: FormBuilder, private route: Router, private forms: FormserviceService, public fireservice: FirestoreService) {
     console.log(this.fireservice.messages);
@@ -42,6 +43,7 @@ export class RegistrationFormComponent {
     this.formDays = this.forms.days;
     this.formProgram = this.forms.programs;
     this.formStateResidence = this.forms.states;
+    this.formCourse = this.forms.courses
     this.form = this.fb.group({
       selectiveCourses: this.fb.array([])
     });
@@ -112,36 +114,22 @@ export class RegistrationFormComponent {
       .catch(error => console.error('Error adding user:', error));
   }
 
+
+  selectedCourses: string[] = [];
+
+  toggleSelection(value: string) {
+    const index = this.selectedCourses.indexOf(value);
+
+    if (index > -1) {
+      // Uncheck it
+      this.selectedCourses.splice(index, 1);
+    } else if (this.selectedCourses.length < 2) {
+      // Check it
+      this.selectedCourses.push(value);
+      console.log(this.selectedCourses);
+    }
+  }
+
+
 }
 
-// onSubmit() {
-//   console.log(this.regForm.value)
-//   alert('Form submitted successfully!');
-// }
-
-
-
-
-
-// Removed duplicate constructor
-// SquadPay() {
-//   const squadInstance = new (window as any).squad({
-//     onClose: () => console.log("Widget closed"),
-//     onLoad: () => console.log("Widget loaded successfully"),
-//     onSuccess: () => this.Successpay(),
-//     key: "sandbox_pk_074a2e5370e9df8d54eaf079a6522f187c30ce2988e8",
-//     transaction_ref: "hnjfgnjhgnjhnjgk",
-//     email: "akibuismail@yahoo.com",
-//     amount: 5000 * 100,
-//     currency_code: "NGN"
-//   });
-//   squadInstance.setup();
-//   squadInstance.open();
-// }
-
-
-
-// Successpay() {
-//   console.log("This has worked!")
-//   this.route.navigateByUrl("/home");
-// }

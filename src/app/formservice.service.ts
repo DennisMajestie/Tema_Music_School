@@ -5,6 +5,7 @@ import { Select2Data } from 'ng-select2-component';
   providedIn: 'root'
 })
 export class FormserviceService {
+  selectiveCourses: any;
 
   constructor() { }
 
@@ -91,6 +92,14 @@ export class FormserviceService {
     value: gender.toLowerCase().replace(/\s+/g, '-'),
     label: gender,
     data: { color: 'white', name: gender }
+  }));
+
+
+  courseList = ['Piano', 'Violin', 'Voice', 'Guitar', 'Trumpet', 'Drums', 'Saxophone'];
+  courses: Select2Data = this.courseList.map(course => ({
+    value: course.toLowerCase().replace(/\s+/g, '-'),
+    label: course,
+    data: { color: 'white', name: course }
   }));
 
 }
