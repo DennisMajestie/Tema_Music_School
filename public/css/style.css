@@ -49,7 +49,7 @@ body {
 p,
 ul {
     color: #666666;
-    font-size: 16px;
+    font-size: 17px;
     line-height: 30px;
 }
 
@@ -2264,9 +2264,19 @@ button.list-group-item:hover {
         font-size: 18px;
     }
 
-
     .list-unstyled li {
         margin: 0px !important;
+        font-size: 0.7rem !important
+    }
+
+
+    ul {
+
+        font-size: 12px !important;
+    }
+
+    p {
+        font-size: 15px !important;
     }
 
     /* Responsive margin*/
@@ -2464,7 +2474,7 @@ button.list-group-item:hover {
     /* Slider */
 
     #layerslider {
-        height: 320px !important;
+        height: 100vh !important;
     }
 }
 
@@ -2703,7 +2713,7 @@ button.list-group-item:hover {
     /* slider */
 
     #layerslider {
-        height: 190px !important;
+        height: 100vh !important;
     }
 
     /* Miscellaneous */

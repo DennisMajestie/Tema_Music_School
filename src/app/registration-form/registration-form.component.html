@@ -1,6 +1,13 @@
 <form [formGroup]="regForm">
     <section class="section-form d-flex margin-top justify-content-center">
         <div class="form-container">
+            <div class="section-heading text-center">
+                <div class="hr"></div>
+                <span class="lead">HELLO THERE</span>
+                <div>
+                    <h2>Welcome to Eagles Registration Page, <br>your journey starts here.</h2>
+                </div>
+            </div>
             <h1 style="color: #1aab60; text-align: center; margin-bottom: 2rem;">
                 Enrollment Form
             </h1>
@@ -44,11 +51,23 @@
                 <div class="form-grid">
                     <select2 [data]="formProgram" customSearchEnabled (search)="_search($event)"
                         formControlName="programType" placeholder="Select Program" class="form-control"> </select2>
-                    <select2 [data]="formDays" customSearchEnabled (search)="_search($event)"
-                        formControlName="preferredDays" placeholder="Preferred Days" class="form-control"></select2>
+
+
+                    <!-- <select2 [data]="formDays" customSearchEnabled (search)="_search($event)"
+                        formControlName="preferredDays" placeholder="Preferred Days" class="form-control"></select2> -->
+
                     <select2 [data]="formLocation" customSearchEnabled (search)="_search($event)"
                         formControlName="preferredLocation" placeholder="Preferred Location" class="form-control">
                     </select2>
+
+                    <div class="checkbox-group row">
+                        <h5>Preffered day of learning</h5>
+                        <label class="" *ngFor="let day of dayList">
+                            <input type="checkbox">
+                            {{ day }}
+                        </label>
+                    </div>
+
                 </div>
             </div>
             <!-- Course Selection -->

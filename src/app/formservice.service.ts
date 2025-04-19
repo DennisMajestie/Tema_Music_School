@@ -54,7 +54,7 @@ export class FormserviceService {
 
 
   programList: string[] = [
-    'Home Lesson', 'Virtual Lesson', 'Group Lesson'
+    'Home Lesson', 'Online Lesson', 'Weekend class at Centers', 'Evening class at centers', 'Summer Program', 'Easter/Spring Program'
   ];
   programs: Select2Data = this.programList.map(program => ({
     value: program.toLowerCase().replace(/\s+/g, '-'),
@@ -76,7 +76,7 @@ export class FormserviceService {
 
 
   locationList: string[] = [
-    'Home', 'Virtual', 'Academy Centre'
+    'Home', 'Virtual', 'Apo Centre', 'Gwarimpa Centre', 'Wuse Centre', 'Suncity Centre'
   ];
   locations: Select2Data = this.locationList.map(location => ({
     value: location.toLowerCase().replace(/\s+/g, '-'),
