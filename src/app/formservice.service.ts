@@ -1,11 +1,11 @@
 import { Injectable } from '@angular/core';
 import { Select2Data } from 'ng-select2-component';
 
+
 @Injectable({
   providedIn: 'root'
 })
 export class FormserviceService {
-  selectiveCourses: any;
 
   constructor() { }
 
@@ -95,8 +95,10 @@ export class FormserviceService {
   }));
 
 
-  courseList = ['Piano', 'Violin', 'Voice', 'Guitar', 'Trumpet', 'Drums', 'Saxophone'];
-  courses: Select2Data = this.courseList.map(course => ({
+  selectiveCourses = [
+    'Piano', 'Violin', 'Voice', 'Guitar', 'Trumpet', 'Drums', 'Saxophone'
+  ];
+  courses: Select2Data = this.selectiveCourses.map(course => ({
     value: course.toLowerCase().replace(/\s+/g, '-'),
     label: course,
     data: { color: 'white', name: course }

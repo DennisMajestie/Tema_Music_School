@@ -6,8 +6,7 @@
 }
 
 .form-container {
-    max-width: 1000px;
-    margin: 5rem auto;
+    width: 1200px;
     background: rgb(255 242 218 / 1);
     padding: 2rem;
     border-radius: 10px;
@@ -50,19 +49,24 @@ label {
     font-weight: bold;
 }
 
-// input, select, textarea .slect-size{
-//     width: 100%;
-//     padding: 0.8rem;
-//     border: 1px solid #e4e0e0b2;
-//     border-radius: 4px;
-//     transition: border-color 0.3s ease;
-// }
+@media (max-width: 768px) {
+    .form-grid {
+        grid-template-columns: 1fr; /* Single column on small screens */
+    }
 
-// input:focus, select:focus, textarea:focus {
-//     outline: none;
-//     border-color:#2ecc71;
-//     box-shadow: 0 0 0 2px rgba(46, 204, 113, 0.2);
-// }
+    .form-container {
+        padding: 1rem;
+    }
+
+    h2, .form-heading {
+        font-size: 1.25rem;
+    }
+
+    .form-heading {
+        margin-top: 5rem;
+    }
+}
+
 
 .courses-section {
     display: grid;
@@ -132,20 +136,17 @@ button:hover {
         font-size: 1rem;
     }
 
-    input, select, textarea {
-        // padding: 0.3rem; /* Smaller input padding */
-        margin: 0.6rem !important;
-    }
+    
 
     .form-group {
         margin-bottom: 0.8rem;
 
     }
     
-    .form-container{
-        padding: 0;
-        padding-top: 2rem;
-    }
+    // .form-container{
+    //     padding: 0;
+    //     padding-top: 2rem;
+    // }
 
     .form-heading {
         padding-left: 10px;
