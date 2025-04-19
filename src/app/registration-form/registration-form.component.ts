@@ -64,9 +64,15 @@ export class RegistrationFormComponent implements OnInit {
     this.formStateResidence = this.forms.states;
   }
 
+  dayList = [
+    'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday',
+    'Sunday'
+  ];
   selectiveCourses = ['Piano', 'Violin', 'Voice', 'Guitar', 'Trumpet', 'Drums', 'Saxophone'];
 
   ngOnInit(): void {
+
+
   }
 
   submit() {
