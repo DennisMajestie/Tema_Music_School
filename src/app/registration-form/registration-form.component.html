@@ -24,7 +24,7 @@
                 <h2 class="form-heading ">Contact Details</h2>
                 <div class="form-grid">
                     <input formControlName="phone" type="tel" placeholder="Phone Number*" class="form-control" />
-                    <input formControlName="email" type="email" placeholder="Email*" class="form-control" />
+                    <input formControlName="email" type="email" placeholder="Email" class="form-control" />
                     <select2 [data]="formCountry" customSearchEnabled (search)="_search($event)"
                         formControlName="nationality" placeholder="Select Country" class="form-control"></select2>
                     <select2 [data]="formState" customSearchEnabled (search)="_search($event)"
@@ -93,15 +93,18 @@
                 <div class="course-group">
                     <h2>Selective Courses<br> (Max-2)</h2>
                     <div class="checkbox-group">
-                        <label *ngFor="let course of selectiveCourses">
-                            <input type="checkbox" formControlName="selectiveCourses">
-                            <!-- <input type="checkbox" [checked]="selectedCourses.includes(course)"
-                                [disabled]="!selectedCourses.includes(course) && selectedCourses.length >= 2"
-                                (change)="toggleSelection(course)" formControlName="selectiveCourse"> -->
-                            {{ course }}
-                        </label>
+                      <label *ngFor="let course of formSelective">
+                        <input 
+                          type="checkbox"
+                          [value]="course"
+                          [checked]="selectedCourses.includes(course)"
+                          [disabled]="!selectedCourses.includes(course) && selectedCourses.length >= 2"
+                          (change)="toggleSelection(course)" />
+                        {{ course }}
+                      </label>
                     </div>
-                </div>
+                  </div>
+                  
             </div>
             <div class="p-5 d-flex justify-content-center ">
                 <button type="submit" (click)="submit()">Submit Application</button>

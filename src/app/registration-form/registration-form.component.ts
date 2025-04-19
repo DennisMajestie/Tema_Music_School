@@ -4,6 +4,8 @@ import { FormBuilder, FormGroup, Validators, FormArray, FormControl, ReactiveFor
 import { Router, RouterModule, RouterOutlet } from '@angular/router';
 import { FormserviceService } from '../formservice.service';
 import { Select2 } from 'ng-select2-component';
+import { FirestoreService, User } from '../firestore.service';
+import { RegFormService } from '../reg-form.service';
 // import { FirestoreService, User } from '../firestore.service';
 // import { RegFormService } from '../reg-form.service';
 
@@ -21,26 +23,8 @@ import { Select2 } from 'ng-select2-component';
 
 export class RegistrationFormComponent implements OnInit {
 
-  regForm: FormGroup = new FormGroup({
-    fName: new FormControl('', Validators.required),
-    lName: new FormControl('', Validators.required),
-    otherName: new FormControl('', Validators.required),
-    dob: new FormControl('', Validators.required),
-    gender: new FormControl('', Validators.required),
-    phone: new FormControl('', Validators.required),
-    email: new FormGroup('', [Validators.required, Validators.email]),
-    address: new FormControl('', Validators.required),
-    stateOfResidence: new FormControl('', Validators.required),
-    nationality: new FormControl('', Validators.required),
-    stateOfOrigin: new FormControl('', Validators.required),
-    programType: new FormGroup('', Validators.required),
-    preferredLocation: new FormControl('', Validators.required),
-    preferredDays: new FormControl('', Validators.required),
-    breadthCourse: new FormControl('', Validators.required),
-    coreCourse: new FormControl('', Validators.required),
-    electiveCourse: new FormControl('', Validators.required),
-    selectiveCourses: new FormControl('', Validators.required),
-  });
+  regForm!: FormGroup;
+
 
   formState: any;
   formCountry: any;
@@ -53,7 +37,7 @@ export class RegistrationFormComponent implements OnInit {
   formSelective: any;
 
 
-  constructor(public forms: FormserviceService) {
+  constructor(private fb: FormBuilder, public forms: FormserviceService, public fireservice: FirestoreService, public alert: RegFormService, private route: Router) {
     this.formState = this.forms.states;
     this.formCountry = this.forms.countries;
     this.formGender = this.forms.genders;
@@ -64,34 +48,73 @@ export class RegistrationFormComponent implements OnInit {
     this.formStateResidence = this.forms.states;
   }
 
-  selectiveCourses = ['Piano', 'Violin', 'Voice', 'Guitar', 'Trumpet', 'Drums', 'Saxophone'];
+
 
   ngOnInit(): void {
+    this.regForm = new FormGroup({
+      fName: new FormControl('', Validators.required),
+      lName: new FormControl('', Validators.required),
+      otherName: new FormControl('', Validators.required),
+      dob: new FormControl('', Validators.required),
+      gender: new FormControl('', Validators.required),
+      phone: new FormControl('', Validators.required),
+      email: new FormControl('', [Validators.required, Validators.email]),
+      address: new FormControl('', Validators.required),
+      stateOfResidence: new FormControl('', Validators.required),
+      nationality: new FormControl('', Validators.required),
+      stateOfOrigin: new FormControl('', Validators.required),
+      programType: new FormControl('', Validators.required), 
+      preferredLocation: new FormControl('', Validators.required),
+      preferredDays: new FormControl('', Validators.required),
+      breadthCourse: new FormControl('', Validators.required),
+      coreCourse: new FormControl('', Validators.required),
+      electiveCourse: new FormControl('', Validators.required),
+      selectiveCourses: this.fb.array([]), 
+    });
+
   }
 
-  submit() {
-    console.log(this.regForm.value)
-  }
+
+  users: [] = [];
 
   _search(e: any) {
 
   }
 
-  // selectedCourses: string[] = [];
+  selectedCourses: string[] = [];
 
-  // toggleSelection(value: string) {
-  //   const index = this.selectedCourses.indexOf(value);
+  toggleSelection(value: string) {
+    const formArray = this.regForm.get('selectiveCourses') as FormArray;
+    const index = this.selectedCourses.indexOf(value);
+  
+    if (index > -1) {
+      this.selectedCourses.splice(index, 1);
+      
+      // Remove from FormArray
+      formArray.removeAt(
+        formArray.controls.findIndex(control => control.value === value)
+      );
+    } else if (this.selectedCourses.length < 2) {
+      this.selectedCourses.push(value);
+      
+      // Add to FormArray
+      formArray.push(new FormControl(value));
+    }
+  }
+  
 
-  //   if (index > -1) {
-  //     // Uncheck it
-  //     this.selectedCourses.splice(index, 1);
-  //   } else if (this.selectedCourses.length < 2) {
-  //     // Check it
-  //     this.selectedCourses.push(value);
-
-  //   }
-
-  // }
+  submit() {
+    if (this.regForm.invalid) {
+      console.error('All fields are required!');
+      return;
+    }
+    const user: User = this.regForm.value;
+    this.fireservice.addUser(user)
+      .then(() => console.log('User added successfully!'))
+      .catch(error => console.error('Error adding user:', error));
+    this.alert.alert('Successful!');
+    console.log(this.regForm.value);
+  }
 }
 // export class RegistrationFormComponent implements OnInit {
 
